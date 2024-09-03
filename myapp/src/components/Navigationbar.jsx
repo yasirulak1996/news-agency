@@ -18,6 +18,9 @@ function Navigationbar() {
           </LinkContainer>
           <LinkContainer to="/Foreginnews">
             <Nav.Link>Foreign News</Nav.Link>
+            </LinkContainer>
+            <LinkContainer to="/Login">
+            <Nav.Link>Login</Nav.Link>
           </LinkContainer>
         </Nav>
       </Navbar.Collapse>
