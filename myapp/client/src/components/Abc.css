@@ -1,0 +1,55 @@
+.card-img-custom {
+    width: 10em;
+    height: 10em;
+  }
+  
+  /* For screens smaller than 768px (tablets and mobile devices) */
+  @media (max-width: 768px) {
+    .card-img-custom {
+      width: 20em;
+      height: 20em;
+    }
+  }
+  
+  /* For screens smaller than 576px (mobile devices) */
+  @media (max-width: 576px) {
+    .card-img-custom {
+      width: 15em;
+      height: 15em;
+    }
+  }
+
+  .animated-color {
+    font-size: 3rem;  /* Adjust the size as needed */
+    font-weight: bold;
+    animation: colorChange 5s infinite;  /* Apply the animation */
+  }
+  
+  /* Keyframes for changing the color */
+  @keyframes colorChange {
+    0% { color: #ff0000; }   /* Red */
+    25% { color: #ff9900; }  /* Orange */
+    50% { color: #00ff00; }  /* Green */
+    75% { color: #0066ff; }  /* Blue */
+    100% { color: #ff00ff; } /* Pink */
+  }
+
+
+  /* Default styles for desktop and larger devices */
+.logo-image {
+  width: 100%;
+  max-width: 150px; /* Default logo size */
+}
+
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+  .logo-container {
+    text-align: center; /* Center the logo on mobile */
+    margin-bottom: 1rem; /* Add space between the logo and the text */
+  }
+
+  .logo-image {
+    max-width: 100px; /* Smaller size for mobile */
+  }
+}
+  
