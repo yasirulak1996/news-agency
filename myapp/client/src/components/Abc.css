@@ -1,6 +1,14 @@
+
+
+.card-body-custom{
+  background-color: #e8edf0;
+}
+
+
 .card-img-custom {
-    width: 10em;
-    height: 10em;
+    width: auto;
+    height: auto;
+    
   }
   
   /* For screens smaller than 768px (tablets and mobile devices) */
@@ -39,6 +47,7 @@
 .logo-image {
   width: 100%;
   max-width: 150px; /* Default logo size */
+  
 }
 
 /* Media query for mobile devices */
@@ -52,4 +61,14 @@
     max-width: 100px; /* Smaller size for mobile */
   }
 }
-  
+.left{
+  width: auto;
+  height: 200px;
+  gap: 10px; /* Optional: space between the components */
+}
+
+.left1{
+  height:50px;
+  width:auto;
+  gap: 10px; /* Optional: space between the components */
+}

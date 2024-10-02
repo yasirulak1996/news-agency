@@ -61,7 +61,7 @@ function AddItemForm() {
   const resetForm = () => {
     setName('');
     setDescription('');
-    setImage(null);
+    setImage("");
     setCategory('local-news');
     setEditMode(false);
     setEditItemId(null);
@@ -109,8 +109,7 @@ function AddItemForm() {
       <form onSubmit={handleSubmit} encType="multipart/form-data">
         <div>
           <label>Name:</label>
-          <input
-            type="text"
+          <textarea
             value={name}
             onChange={(e) => setName(e.target.value)}
             required
@@ -146,6 +145,10 @@ function AddItemForm() {
             <option value="foreign-news">Foreign News</option>
             <option value="politicalnews">Political News</option>
             <option value="Gossip">Gossip</option>
+            <option value="Brakingnews">Braking news</option>
+            <option value="Tophits">Top hits</option>
+            <option value="Educational">Educational</option>
+            <option value="Biznews">Biznews</option>
 
           </select>
         </div>

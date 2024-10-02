@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom'; // Import Link component
 
-function Localc() {
+function Tophits() {
   const [items, setItems] = useState([]); // Use 'items' to store the fetched data
 
   // Fetch data from the backend
@@ -13,7 +13,7 @@ function Localc() {
         const data = await response.json();
         
         // Filter only the items in the 'local-news' category
-        const localNewsItems = data.filter(item => item.category === 'local-news');
+        const localNewsItems = data.filter(item => item.category === 'Tophits');
         setItems(localNewsItems);
       } catch (error) {
         console.error('Error fetching items:', error);
@@ -39,4 +39,4 @@ function Localc() {
   );
 }
 
-export default Localc;
+export default Tophits;
