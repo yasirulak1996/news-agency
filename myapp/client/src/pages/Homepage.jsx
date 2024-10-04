@@ -55,50 +55,54 @@ function Homepage() {
     <>
       <Header />
       <Navigationbar />
+      <Image 
+        style={{ width: '100px', height: '100px', marginBottom: '15px' }} // Fixed size for Image component
+      />  
       
       <Container className="mt-5">
-        <Row>
-          <Col sm={3}>
-            <h5>Top Hits</h5>
-            <Brakingnews />
-            <h5>Educational</h5>
-            <Educational />
-          </Col>
+  <Row>
+    {/* Middle Column (Image + Cards) */}
+    <Col sm={6} xs={{ order: 1 }} className="mb-4">
+     
+      {currentItems.map((item) => (
+        <Card key={item.id} className="mb-4">
+          <Card.Body className="d-flex align-items-center card-body-custom">
+            <div className="d-flex align-items-center">
+              <Card.Img 
+                variant="top" 
+                src={item.image} 
+                alt={item.name} 
+                className="card-img-custom" 
+                style={{ height: "100px", width: "100px", marginRight: "15px" }} 
+              />
+              <div>
+                <Card.Title className="card-title-custom">
+                  <Link to={`/items/${item.id}`}>{item.name}</Link>
+                </Card.Title>
+                <Card.Text>{item.category}</Card.Text>
+              </div>
+            </div>
+          </Card.Body>
+        </Card>
+      ))}
+    </Col>
 
-          {/* Middle Column */}
-          <Col sm={6}>
-            <Image />
-            {currentItems.map((item) => (
-              <Card key={item.id} className="mb-4">
-                <Card.Body className="d-flex align-items-center card-body-custom">
-                  <div className="d-flex align-items-center">
-                    <Card.Img 
-                      variant="top" 
-                      src={item.image} 
-                      alt={item.name} 
-                      className="card-img-custom" 
-                      style={{ height: "100px", width: "100px", marginRight: "15px" }} 
-                    />
-                    <div>
-                      <Card.Title className="card-title-custom">
-                        <Link to={`/items/${item.id}`}>{item.name}</Link>
-                      </Card.Title>
-                      <Card.Text>{item.category}</Card.Text>
-                    </div>
-                  </div>
-                </Card.Body>
-              </Card>
-            ))}
-          </Col>
+    {/* Left Column */}
+    <Col sm={3} xs={{ order: 2 }} className="mb-4">
+      <h5>Brakingnews</h5>
+      <Brakingnews />
+      <h5>Educational</h5>
+      <Educational />
+    </Col>
 
-          {/* Right Column */}
-          <Col sm={3}>
-            <h5>Brakingnews</h5>
-            <Tophits />
-            <h5>Gossip</h5>
-            <Gosipc />
-          </Col>
-        </Row>
+    {/* Right Column */}
+    <Col sm={3} xs={{ order: 3 }}>
+      <h5>Top hits</h5>
+      <Tophits />
+      <h5>Gossip</h5>
+      <Gosipc />
+    </Col>
+  </Row>
 
         <CustomPagination
           totalItems={items.length} // Use 'items.length' instead of 'data.length'
@@ -114,3 +118,5 @@ function Homepage() {
 }
 
 export default Homepage;
+
+

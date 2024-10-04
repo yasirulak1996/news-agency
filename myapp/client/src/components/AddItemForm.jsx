@@ -149,6 +149,8 @@ function AddItemForm() {
             <option value="Tophits">Top hits</option>
             <option value="Educational">Educational</option>
             <option value="Biznews">Biznews</option>
+            <option value="Technical">Technical</option>
+
 
           </select>
         </div>

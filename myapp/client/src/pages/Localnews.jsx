@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom'; // Import Link
+import { Link } from 'react-router-dom'; 
 import Header from "../components/Header";
 import Navigationbar from "../components/Navigationbar";
 import CustomPagination from '../components/CustomPagination';
 import { Container, Card, Row, Col } from 'react-bootstrap';
 import Footer from "../components/Footer";
-import Brakingnews from '../components/Brakingnews'; // Ensure you import the missing components
-import Educational from '../components/Educational';
-import Tophits from '../components/Tophits';
+import Brakingnews from '../components/Brakingnews'; 
+import Politicalc from '../components/Politicalc';
+import Foregnnewsc from '../components/Foregnnewsc';
 import Gosipc from '../components/Gosipc';
-import Image from '../components/Image';
+
 
 function Localnews() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -51,15 +51,14 @@ function Localnews() {
       <Container className="mt-5">
         <Row>
           <Col sm={3}>
-            <h5>Top Hits</h5>
+            <h5>Brakingnews</h5>
             <Brakingnews />
-            <h5>Educational</h5>
-            <Educational />
+            <h5>political news</h5>
+            <Politicalc />
           </Col>
 
           {/* Middle Column */}
           <Col sm={6}>
-            <Image />
             {currentItems.map((item) => (
               <Card key={item.id} className="mb-4">
                 <Card.Body className="d-flex align-items-center card-body-custom">
@@ -85,8 +84,8 @@ function Localnews() {
 
           {/* Right Column */}
           <Col sm={3}>
-            <h5>Breaking News</h5>
-            <Tophits />
+            <h5>Foregn news</h5>
+            <Foregnnewsc />
             <h5>Gossip</h5>
             <Gosipc />
           </Col>

@@ -7,8 +7,8 @@ import { Container, Card, Row, Col } from 'react-bootstrap';
 import Footer from "../components/Footer";
 import Brakingnews from '../components/Brakingnews'; // Ensure you import the missing components
 import Educational from '../components/Educational';
-import Tophits from '../components/Tophits';
-import Gosipc from '../components/Gosipc';
+import Biznews from '../components/Biznews';
+import Technical from '../components/Technical';
 import Image from '../components/Image';
 
 function Foreginnews() {
@@ -24,7 +24,7 @@ function Foreginnews() {
         const data = await response.json();
         
         // Filter only the items in the 'local-news' category
-        const localNewsItems = data.filter(item => item.category === 'local-news');
+        const localNewsItems = data.filter(item => item.category === 'foreign-news');
         setItems(localNewsItems);
       } catch (error) {
         console.error('Error fetching items:', error);
@@ -51,7 +51,7 @@ function Foreginnews() {
       <Container className="mt-5">
         <Row>
           <Col sm={3}>
-            <h5>Top Hits</h5>
+            <h5>Braking news</h5>
             <Brakingnews />
             <h5>Educational</h5>
             <Educational />
@@ -59,7 +59,7 @@ function Foreginnews() {
 
           {/* Middle Column */}
           <Col sm={6}>
-            <Image />
+          
             {currentItems.map((item) => (
               <Card key={item.id} className="mb-4">
                 <Card.Body className="d-flex align-items-center card-body-custom">
@@ -85,10 +85,10 @@ function Foreginnews() {
 
           {/* Right Column */}
           <Col sm={3}>
-            <h5>Breaking News</h5>
-            <Tophits />
-            <h5>Gossip</h5>
-            <Gosipc />
+            <h5>Biznews</h5>
+            <Biznews />
+            <h5>Technical</h5>
+            <Technical />
           </Col>
         </Row>
 

@@ -1,7 +1,7 @@
 
-
-.card-body-custom{
-  background-color: #e8edf0;
+.card-body-custom {
+  border: none !important;
+  box-shadow: none;
 }
 
 
@@ -71,4 +71,19 @@
   height:50px;
   width:auto;
   gap: 10px; /* Optional: space between the components */
+}
+
+.card-img-custom1 {
+  width: auto;
+  height: 200px;
+  object-fit: cover;
+  max-width: 100%;  /* Responsive for mobile */
+}
+
+/* Mobile view adjustments */
+@media (max-width: 768px) {
+  .card-img-custom1 {
+    width: 100%;  /* Full width on mobile */
+    height: auto; /* Maintain aspect ratio */
+  }
 }
