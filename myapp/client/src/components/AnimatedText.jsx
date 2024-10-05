@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 
 const AnimatedText = () => {
-  const [currentText, setCurrentText] = useState('එන්න...!!!!');
-  const texts = ['එන්න...!!!!', 'කියවන්න...!!!!', 'දැනගන්න...!!!!'];
+  const [currentText, setCurrentText] = useState('WORLD');
+  const texts = ['WORLD', 'FASTS', 'NEWS'];
 
   useEffect(() => {
     let index = 0;

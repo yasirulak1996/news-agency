@@ -15,7 +15,7 @@ import Footer from "../components/Footer";
 function Homepage() {
   const [currentPage, setCurrentPage] = useState(1);
   const [items, setItems] = useState([]); // Changed to 'items'
-  const itemsPerPage = 10; // Number of items per page
+  const itemsPerPage = 20; // Number of items per page
 
   // Fetch data from the backend
   useEffect(() => {
@@ -56,56 +56,56 @@ function Homepage() {
       <Header />
       <Navigationbar />
       <Image 
-        style={{ width: '100px', height: '100px', marginBottom: '15px' }} // Fixed size for Image component
+        
       />  
       
       <Container className="mt-5">
-  <Row>
-    {/* Middle Column (Image + Cards) */}
-    <Col sm={6} xs={{ order: 1 }} className="mb-4">
-     
-      {currentItems.map((item) => (
-        <Card key={item.id} className="mb-4">
-          <Card.Body className="d-flex align-items-center card-body-custom">
-            <div className="d-flex align-items-center">
-              <Card.Img 
-                variant="top" 
-                src={item.image} 
-                alt={item.name} 
-                className="card-img-custom" 
-                style={{ height: "100px", width: "100px", marginRight: "15px" }} 
-              />
-              <div>
-                <Card.Title className="card-title-custom">
-                  <Link to={`/items/${item.id}`}>{item.name}</Link>
-                </Card.Title>
-                <Card.Text>{item.category}</Card.Text>
-              </div>
-            </div>
-          </Card.Body>
-        </Card>
-      ))}
-    </Col>
+        <Row>
+          <Col sm={3}>
+            <h5>Brakingnews</h5>
+            <Brakingnews />
+            <h5>Tophits</h5>
+            < Tophits/>
+          </Col>
 
-    {/* Left Column */}
-    <Col sm={3} xs={{ order: 2 }} className="mb-4">
-      <h5>Brakingnews</h5>
-      <Brakingnews />
-      <h5>Educational</h5>
-      <Educational />
-    </Col>
+          {/* Middle Column */}
+          <Col sm={6}>
+          
+            {currentItems.map((item) => (
+              <Card key={item.id} className="mb-4">
+                <Card.Body className="d-flex align-items-center card-body-custom">
+                  <div className="d-flex align-items-center">
+                    <Card.Img 
+                      variant="top" 
+                      src={item.image} 
+                      alt={item.name} 
+                      className="card-img-custom" 
+                      style={{ height: "100px", width: "100px", marginRight: "15px" }} 
+                    />
+                    <div>
+                      <Card.Title className="card-title-custom">
+                        <Link to={`/items/${item.id}`}>{item.name}</Link>
+                      </Card.Title>
+                      <Card.Text>{item.category}</Card.Text>
+                    </div>
+                  </div>
+                </Card.Body>
+              </Card>
+            ))}
+          </Col>
 
-    {/* Right Column */}
-    <Col sm={3} xs={{ order: 3 }}>
-      <h5>Top hits</h5>
-      <Tophits />
-      <h5>Gossip</h5>
-      <Gosipc />
-    </Col>
-  </Row>
+          {/* Right Column */}
+          <Col sm={3}>
+            <h5>Gossip</h5>
+            <Gosipc />
+            <h5>Educational</h5>
+            <Educational/>
+           
+          </Col>
+        </Row>
 
         <CustomPagination
-          totalItems={items.length} // Use 'items.length' instead of 'data.length'
+          totalItems={items.length} 
           itemsPerPage={itemsPerPage}
           currentPage={currentPage}
           onPageChange={handlePageChange}

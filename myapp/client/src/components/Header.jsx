@@ -21,7 +21,7 @@ function Header() {
 
     {/* Title and animated text in the center */}
     <Col xs={12} md={8} className="text-center">
-      <h1 className="animated-color">සිංහnews</h1>
+      <h1 className="animated-color">SINHANEWS</h1>
       <AnimatedText />
     </Col>
   </Row>

@@ -14,7 +14,7 @@ import Gosipc from '../components/Gosipc';
 function Localnews() {
   const [currentPage, setCurrentPage] = useState(1);
   const [items, setItems] = useState([]);
-  const itemsPerPage = 10; 
+  const itemsPerPage = 20; 
 
   // Fetch data from the backend
   useEffect(() => {
@@ -49,47 +49,48 @@ function Localnews() {
       <Navigationbar />
       
       <Container className="mt-5">
-        <Row>
-          <Col sm={3}>
-            <h5>Brakingnews</h5>
-            <Brakingnews />
-            <h5>political news</h5>
-            <Politicalc />
-          </Col>
+  <Row>
+    {/* Middle Column on top in mobile view */}
+    <Col sm={6} order={{ xs: 1, sm: 2 }} className="mb-3">
+      {currentItems.map((item) => (
+        <Card key={item.id} className="mb-4">
+          <Card.Body className="d-flex align-items-center card-body-custom">
+            <div className="d-flex align-items-center">
+              <Card.Img
+                variant="top"
+                src={item.image}
+                alt={item.name}
+                className="card-img-custom"
+                style={{ height: "100px", width: "100px", marginRight: "15px" }}
+              />
+              <div>
+                <Card.Title className="card-title-custom">
+                  <Link to={`/items/${item.id}`}>{item.name}</Link>
+                </Card.Title>
+                <Card.Text>{item.category}</Card.Text>
+              </div>
+            </div>
+          </Card.Body>
+        </Card>
+      ))}
+    </Col>
 
-          {/* Middle Column */}
-          <Col sm={6}>
-            {currentItems.map((item) => (
-              <Card key={item.id} className="mb-4">
-                <Card.Body className="d-flex align-items-center card-body-custom">
-                  <div className="d-flex align-items-center">
-                    <Card.Img 
-                      variant="top" 
-                      src={item.image} 
-                      alt={item.name} 
-                      className="card-img-custom" 
-                      style={{ height: "100px", width: "100px", marginRight: "15px" }} 
-                    />
-                    <div>
-                      <Card.Title className="card-title-custom">
-                        <Link to={`/items/${item.id}`}>{item.name}</Link>
-                      </Card.Title>
-                      <Card.Text>{item.category}</Card.Text>
-                    </div>
-                  </div>
-                </Card.Body>
-              </Card>
-            ))}
-          </Col>
+    {/* Left Column */}
+    <Col sm={3} order={{ xs: 2, sm: 1 }} className="mb-3">
+      <h5>Braking news</h5>
+      <Brakingnews />
+      <h5>Political</h5>
+      <Politicalc />
+    </Col>
 
-          {/* Right Column */}
-          <Col sm={3}>
-            <h5>Foregn news</h5>
-            <Foregnnewsc />
-            <h5>Gossip</h5>
-            <Gosipc />
-          </Col>
-        </Row>
+    {/* Right Column */}
+    <Col sm={3} order={{ xs: 3, sm: 3 }} className="mb-3">
+      <h5>Gossip</h5>
+      <Gosipc />
+      <h5>foreign news</h5>
+      <Foregnnewsc />
+    </Col>
+  </Row>
 
         <CustomPagination
           totalItems={items.length} 
