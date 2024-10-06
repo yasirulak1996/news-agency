@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 const AnimatedText = () => {
   const [currentText, setCurrentText] = useState('WORLD');
-  const texts = ['WORLD', 'FASTS', 'NEWS'];
+  const texts = ['WORLD', 'FASTEST', 'NEWS UPDATES'];
 
   useEffect(() => {
     let index = 0;
